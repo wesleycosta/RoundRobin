@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class Partido {
 
+    //
     private String nome;
     private String sigla;
     private String numero;
