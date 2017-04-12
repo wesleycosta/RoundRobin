@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Candidato extends Pessoa {
@@ -57,9 +58,37 @@ public class Candidato extends Pessoa {
         System.out.println("Cargo...............: " + getCargo());
     }
 
-    public void salvarEmArquivo() 
-    {
+    public void salvarEmArquivo() {
         Arquivo arq = new Arquivo(ConfiguracaoArquivo.caminhoCandidato);
-        arq.escrever(getNome() + ";" + getApelido() + ";" + getCPF() + ";" + getDataNascimento() + ";" + getFormacaoAcademica() + ";" + getProfissao() + ";" + getEstado() + ";" + getCargo());
+        arq.escrever(getNome() + ";" + getApelido() + ";" + getCPF() + ";" + getDataNascimento() + ";" + getFormacaoAcademica()
+                + ";" + getProfissao() + ";" + getEstado() + ";" + getCargo());
     }
+
+    private Candidato converterLinhaParaCandidato(String linha) {
+        Candidato candidato = new Candidato();
+        String[] elementos = linha.split(";");
+        candidato.nome = elementos[0];
+        candidato.apelido = elementos[1];
+        candidato.CPF = elementos[2];
+        candidato.dataNascimento = elementos[3];
+        candidato.formacaoAcademica = elementos[4];
+        candidato.profissao = elementos[5];
+        candidato.estado = elementos[6];
+        candidato.cargo = elementos[7];
+
+        return candidato;
+    }
+
+    public ArrayList<Candidato> carregarCandidatos() {
+        ArrayList<Candidato> listaCandidatos = new ArrayList<>();
+        Arquivo arq = new Arquivo();
+        ArrayList<String> linhasDoArquivo = arq.ler(ConfiguracaoArquivo.caminhoCandidato);
+
+        for (int i = 0; i < linhasDoArquivo.size(); i++) {
+            listaCandidatos.add(converterLinhaParaCandidato(linhasDoArquivo.get(i)));
+        }
+        
+        return listaCandidatos;
+    }
+
 }
