@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.ArrayList;
 
 public class Arquivo {
 
@@ -29,20 +30,23 @@ public class Arquivo {
         }
     }
 
-    public void ler(String caminhoDoArquivo) {
+    public ArrayList<String> ler(String caminhoDoArquivo) {
 
+        ArrayList<String> lista = new ArrayList<String>();
         if (new File(caminhoDoArquivo).exists()) {
             try {
                 BufferedReader leitor = new BufferedReader(new FileReader(caminhoDoArquivo));
 
                 String linha;
                 while ((linha = leitor.readLine()) != null) {
-                    System.out.println(linha);
+                    lista.add(linha);
                 }
             } catch (Exception ex) {
                 System.out.printf(ex.toString());
             }
         }
+
+        return lista;
     }
 
     public String buscarArquivo(final File diretorio, String nomeArquivo) {
