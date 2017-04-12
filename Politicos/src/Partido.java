@@ -1,0 +1,56 @@
+
+import java.util.Scanner;
+
+public class Partido {
+
+    private String nome;
+    private String sigla;
+    private String numero;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getSigla() {
+        return sigla;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setSigla(String sigla) {
+        this.sigla = sigla;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public void leia() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("");
+        System.out.println("Cadastro Partido");
+        System.out.println("");
+
+        System.out.println("Entre o nome do partido.......: ");
+        setNome(in.nextLine());
+
+        System.out.println("Entre com a sigla do partido..: ");
+        setSigla(in.nextLine());
+
+        System.out.println("Entre o número do partido.....: ");
+        setNumero(in.nextLine());
+    }
+
+    public void imprimir() {
+        System.out.println("DADOS DO PARTIDO " + getNome());
+        System.out.println("Nome....: " + getNome());
+        System.out.println("Sigla...: " + getSigla());
+        System.out.println("Número..: " + getNumero());
+    }
+}
