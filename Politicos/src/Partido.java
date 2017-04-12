@@ -37,21 +37,21 @@ public class Partido {
         System.out.println("Cadastro Partido");
         System.out.println("");
 
-        System.out.println("Entre o nome do partido.......: ");
+        System.out.print("Entre o nome do partido.......: ");
         setNome(in.nextLine());
 
-        System.out.println("Entre com a sigla do partido..: ");
+        System.out.print("Entre com a sigla do partido..: ");
         setSigla(in.nextLine());
 
-        System.out.println("Entre o número do partido.....: ");
+        System.out.print("Entre o número do partido.....: ");
         setNumero(in.nextLine());
     }
 
     public void imprimir() {
         System.out.println("DADOS DO PARTIDO " + getNome());
-        System.out.println("Nome....: " + getNome());
-        System.out.println("Sigla...: " + getSigla());
-        System.out.println("Número..: " + getNumero());
+        System.out.print("Nome....: " + getNome());
+        System.out.print("Sigla...: " + getSigla());
+        System.out.print("Número..: " + getNumero());
     }
 
     public void salvarEmArquivo() {
