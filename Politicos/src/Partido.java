@@ -6,12 +6,6 @@ public class Partido {
     private String nome;
     private String sigla;
     private String numero;
-    asdasd
-            a
-            sd
-                    asd
-                    as
-                            sda
 
     public String getNome() {
         return nome;
