@@ -21,36 +21,45 @@ public class Candidato extends Pessoa
         System.out.println("Cadastro de Canditado");
         System.out.println("");
 
-        System.out.println("Entre o nome do Canditado.......: ");
+        System.out.print("Entre o nome do Canditado.......: ");
         setNome(in.nextLine());
 
-        System.out.println("Entre com o Apelido..: ");
+        System.out.print("Entre com o Apelido.............: ");
         setApelido(in.nextLine());
 
-        System.out.println("Entre com o CPF.....: ");
+        System.out.print("Entre com o CPF.................: ");
         setCPF(in.nextInt());
         
-        System.out.println("Entre com a Data de Nascimento.....: ");
+        System.out.print("Entre com a Data de Nascimento..: ");
         setDataNascimento(in.nextLine());
         
-        System.out.println("Entre com a Formação Academica.....: ");
+        System.out.print("Entre com a Formação Academica..: ");
         setFormacaoAcademica(in.nextLine());
         
-        System.out.println("Entre com a Profissão.....: ");
+        System.out.print("Entre com a Profissão...........: ");
         setProfissao(in.nextLine());
         
-        System.out.println("Entre com o Estado.....: ");
+        System.out.print("Entre com o Estado..............: ");
         setEstado(in.nextLine());
+        
+        System.out.print("Entre com o Cargo...............: ");
+        setCargo(in.nextLine());
     }
 
     public void imprimir() {
         System.out.println("DADOS DO Canditado " + getNome());
-        System.out.println("Nome.................: " + getNome());
-        System.out.println("Apelido..............: " + getApelido());
-        System.out.println("CPF..................: " + getCPF());
-        System.out.println("Data de Nascimento...: " + getDataNascimento());
-        System.out.println("Formação Academica...: " + getFormacaoAcademica());
-        System.out.println("Profissão............: " + getProfissao());
-        System.out.println("Estado...............: " + getEstado());
+        System.out.print("Nome.................: " + getNome());
+        System.out.print("Apelido..............: " + getApelido());
+        System.out.print("CPF..................: " + getCPF());
+        System.out.print("Data de Nascimento...: " + getDataNascimento());
+        System.out.print("Formação Academica...: " + getFormacaoAcademica());
+        System.out.print("Profissão............: " + getProfissao());
+        System.out.print("Estado...............: " + getEstado());
+        System.out.print("Cargo...............: " + getCargo());
+    }
+    
+    public void salvarEmArquivo() {
+        Arquivo arq = new Arquivo(ConfiguracaoArquivo.caminhoPartido);
+        arq.escrever(getNome() + ";" + getApelido()+ ";"  + getCPF()+ ";" +getDataNascimento()+ ";" +getFormacaoAcademica()+ ";" +getProfissao()+ ";" +getEstado()+ ";" +getCargo());
     }
 }
