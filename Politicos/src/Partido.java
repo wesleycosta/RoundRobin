@@ -53,4 +53,9 @@ public class Partido {
         System.out.println("Sigla...: " + getSigla());
         System.out.println("Número..: " + getNumero());
     }
+
+    public void salvarEmArquivo() {
+        Arquivo arq = new Arquivo(ConfiguracaoArquivo.caminhoPartido);
+        arq.escrever(getNome() + ";" + getSigla() + ";"  + getNumero());
+    }
 }

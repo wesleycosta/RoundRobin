@@ -56,4 +56,13 @@ public class Arquivo {
 
         return null;
     }
+
+    public static String getDiretorioAtual() {
+        try {
+            return new File(".").getCanonicalPath();
+        } catch (Exception ex) {
+            System.out.println(ex.toString());
+        }
+        return ".";
+    }
 }
