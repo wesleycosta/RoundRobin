@@ -49,9 +49,9 @@ public class Partido {
 
     public void imprimir() {
         System.out.println("DADOS DO PARTIDO " + getNome());
-        System.out.print("Nome....: " + getNome());
-        System.out.print("Sigla...: " + getSigla());
-        System.out.print("Número..: " + getNumero());
+        System.out.println("Nome....: " + getNome());
+        System.out.println("Sigla...: " + getSigla());
+        System.out.println("Número..: " + getNumero());
     }
 
     public void salvarEmArquivo() {

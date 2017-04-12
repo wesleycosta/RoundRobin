@@ -9,8 +9,6 @@ public class Candidato extends Pessoa
         return cargo;
     }
     
-    // asdasdasd
-
     public void setCargo(String cargo) {
         this.cargo = cargo;
     }
@@ -48,14 +46,14 @@ public class Candidato extends Pessoa
 
     public void imprimir() {
         System.out.println("DADOS DO Canditado " + getNome());
-        System.out.print("Nome.................: " + getNome());
-        System.out.print("Apelido..............: " + getApelido());
-        System.out.print("CPF..................: " + getCPF());
-        System.out.print("Data de Nascimento...: " + getDataNascimento());
-        System.out.print("Formação Academica...: " + getFormacaoAcademica());
-        System.out.print("Profissão............: " + getProfissao());
-        System.out.print("Estado...............: " + getEstado());
-        System.out.print("Cargo...............: " + getCargo());
+        System.out.println("Nome.................: " + getNome());
+        System.out.println("Apelido..............: " + getApelido());
+        System.out.println("CPF..................: " + getCPF());
+        System.out.println("Data de Nascimento...: " + getDataNascimento());
+        System.out.println("Formação Academica...: " + getFormacaoAcademica());
+        System.out.println("Profissão............: " + getProfissao());
+        System.out.println("Estado...............: " + getEstado());
+        System.out.println("Cargo...............: " + getCargo());
     }
     
     public void salvarEmArquivo() {
