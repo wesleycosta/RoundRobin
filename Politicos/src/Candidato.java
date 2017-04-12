@@ -26,7 +26,7 @@ public class Candidato extends Pessoa {
         setApelido(in.nextLine());
 
         System.out.print("Entre com o CPF.................: ");
-        setCPF(in.nextInt());
+        setCPF(in.nextLine());
 
         System.out.print("Entre com a Data de Nascimento..: ");
         setDataNascimento(in.nextLine());

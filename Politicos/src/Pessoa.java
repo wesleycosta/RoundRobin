@@ -2,7 +2,7 @@ public class Pessoa
 {
     protected String nome;
     protected String apelido;
-    protected int CPF;
+    protected String CPF;
     protected String dataNascimento;
     protected String formacaoAcademica;
     protected String profissao;
@@ -24,11 +24,11 @@ public class Pessoa
         this.apelido = apelido;
     }
 
-    public int getCPF() {
+    public String getCPF() {
         return CPF;
     }
 
-    public void setCPF(int CPF) {
+    public void setCPF(String CPF) {
         this.CPF = CPF;
     }
 
