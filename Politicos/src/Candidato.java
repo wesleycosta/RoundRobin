@@ -57,8 +57,9 @@ public class Candidato extends Pessoa {
         System.out.println("Cargo...............: " + getCargo());
     }
 
-    public void salvarEmArquivo() {
-        Arquivo arq = new Arquivo(ConfiguracaoArquivo.caminhoPartido);
+    public void salvarEmArquivo() 
+    {
+        Arquivo arq = new Arquivo(ConfiguracaoArquivo.caminhoCandidato);
         arq.escrever(getNome() + ";" + getApelido() + ";" + getCPF() + ";" + getDataNascimento() + ";" + getFormacaoAcademica() + ";" + getProfissao() + ";" + getEstado() + ";" + getCargo());
     }
 }
