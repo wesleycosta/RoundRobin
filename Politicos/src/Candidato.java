@@ -1,4 +1,4 @@
-public class Candidatos extends Pessoas
+public class Candidato extends Pessoa
 {
     private String cargo;
     
