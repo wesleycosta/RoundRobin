@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class Arquivo {
 
     private String nomeArquivo;
-    private String quebraLinha = System.getProperty("line.separator");
 
     Arquivo(String nomeArquivo) {
         this.nomeArquivo = nomeArquivo;
@@ -22,7 +21,7 @@ public class Arquivo {
     public void escrever(String texto) {
         try {
             BufferedWriter escrever = new BufferedWriter(new FileWriter(this.nomeArquivo, true));
-            escrever.write(texto.replace("\n", this.quebraLinha));
+            escrever.write(texto);
             escrever.newLine();
             escrever.close();
         } catch (Exception ex) {
@@ -47,18 +46,6 @@ public class Arquivo {
         }
 
         return lista;
-    }
-
-    public String buscarArquivo(final File diretorio, String nomeArquivo) {
-        for (final File arquivo : diretorio.listFiles()) {
-            if (arquivo.isDirectory()) {
-                buscarArquivo(arquivo, nomeArquivo);
-            } else if (arquivo.getName().equals(nomeArquivo)) {
-                return arquivo.getPath();
-            }
-        }
-
-        return null;
     }
 
     public static String getDiretorioAtual() {
