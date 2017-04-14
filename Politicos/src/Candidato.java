@@ -4,14 +4,14 @@ import java.util.Scanner;
 
 public class Candidato extends Pessoa {
 
-    private String cargo;
+    private int cargo;
     private Partido partido;
 
-    public String getCargo() {
+    public int getCargo() {
         return cargo;
     }
 
-    public void setCargo(String cargo) {
+    public void setCargo(int cargo) {
         this.cargo = cargo;
     }
 
@@ -41,18 +41,17 @@ public class Candidato extends Pessoa {
         System.out.print("Entre com a Data de Nascimento..: ");
         setDataNascimento(in.nextLine());
 
-        System.out.print("Entre com a Formação Academica..: ");
+        System.out.print("Entre com a FormaÃ§Ã£o Academica..: ");
         setFormacaoAcademica(in.nextLine());
 
-        System.out.print("Entre com a Profissão...........: ");
+        System.out.print("Entre com a ProfissÃ£o...........: ");
         setProfissao(in.nextLine());
 
         System.out.print("Entre com o Estado..............: ");
         setEstado(in.nextLine());
 
-        System.out.print("Entre com o Cargo...............: ");
-        setCargo(in.nextLine());
-
+        setCargo(Cargo.leiaMenu());
+        
         Partido partido = Partido.selecionarPardito();
         setPartido(partido);
     }
@@ -64,10 +63,10 @@ public class Candidato extends Pessoa {
         System.out.println("Apelido..............: " + getApelido());
         System.out.println("CPF..................: " + getCPF());
         System.out.println("Data de Nascimento...: " + getDataNascimento());
-        System.out.println("Formação Academica...: " + getFormacaoAcademica());
-        System.out.println("Profissão............: " + getProfissao());
+        System.out.println("FormaÃ§Ã£o Academica...: " + getFormacaoAcademica());
+        System.out.println("ProfissÃ£o............: " + getProfissao());
         System.out.println("Estado...............: " + getEstado());
-        System.out.println("Cargo...............: " + getCargo());
+        System.out.println("Cargo...............: " + Cargo.getNome(getCargo()));
 
         getPardito().imprimir();
     }
@@ -95,7 +94,7 @@ public class Candidato extends Pessoa {
         candidato.profissao = elementos[5];
         candidato.estado = elementos[6];
         candidato.cidade = elementos[7];
-        candidato.cargo = elementos[8];
+        candidato.cargo = Integer.parseInt(elementos[8]);
         candidato.partido = Partido.getPartidoPeloNumero(elementos[9]);
 
         return candidato;
