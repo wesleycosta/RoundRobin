@@ -125,10 +125,20 @@ public class Partido {
         ArrayList<Partido> listaDePartido = Partido.carregarPartidos();
 
         for (Partido partido : listaDePartido) {
-            if(partido.numero.equals(numPartido))
+            if (partido.numero.equals(numPartido)) {
                 return partido;
+            }
         }
 
         return new Partido("", "", numPartido);
+    }
+
+    public static void listaPartidos() {
+        ArrayList<Partido> partidos = new ArrayList<>();
+        partidos = Partido.carregarPartidos();
+
+        for (int i = 0; i < partidos.size(); i++) {
+            partidos.get(i).imprimir();
+        }
     }
 }
