@@ -59,8 +59,6 @@ public class Partido {
     }
 
     public void imprimir() {
-        System.out.println("\n");
-        System.out.println("DADOS DO PARTIDO");
         System.out.println("Nome....: " + getNome());
         System.out.println("Sigla...: " + getSigla());
         System.out.println("Número..: " + getNumero());
@@ -138,6 +136,7 @@ public class Partido {
         partidos = Partido.carregarPartidos();
 
         for (int i = 0; i < partidos.size(); i++) {
+            System.out.println("DADOS DO PARTIDO " + i);
             partidos.get(i).imprimir();
         }
     }
