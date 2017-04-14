@@ -44,7 +44,7 @@ public class Partido {
 
     public void leia() {
         Scanner in = new Scanner(System.in);
-        System.out.println("");
+        System.out.println("\n");
         System.out.println("Cadastro de Partido");
         System.out.println("");
 
@@ -60,6 +60,7 @@ public class Partido {
 
     public void imprimir() {
         System.out.println("\n");
+        System.out.println("DADOS DO PARTIDO");
         System.out.println("Nome....: " + getNome());
         System.out.println("Sigla...: " + getSigla());
         System.out.println("Número..: " + getNumero());

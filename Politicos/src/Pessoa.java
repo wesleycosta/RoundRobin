@@ -1,5 +1,6 @@
-public class Pessoa 
-{
+
+public class Pessoa {
+
     protected String nome;
     protected String apelido;
     protected String CPF;
@@ -7,6 +8,15 @@ public class Pessoa
     protected String formacaoAcademica;
     protected String profissao;
     protected String estado;
+    protected String cidade;
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
 
     public String getNome() {
         return nome;
@@ -63,6 +73,5 @@ public class Pessoa
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    
-    
+
 }

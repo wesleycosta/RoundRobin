@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Candidato extends Pessoa {
 
     private String cargo;
+    private Partido partido;
 
     public String getCargo() {
         return cargo;
@@ -12,6 +13,14 @@ public class Candidato extends Pessoa {
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
+    }
+
+    public Partido getPardito() {
+        return partido;
+    }
+
+    public void setPartido(Partido partido) {
+        this.partido = partido;
     }
 
     public void leia() {
@@ -43,11 +52,14 @@ public class Candidato extends Pessoa {
 
         System.out.print("Entre com o Cargo...............: ");
         setCargo(in.nextLine());
+
+        Partido partido = Partido.selecionarPardito();
+        setPartido(partido);
     }
 
     public void imprimir() {
         System.out.println("\n");
-        System.out.println("DADOS DO Canditado " + getNome());
+        System.out.println("DADOS DO CANDIDATO");
         System.out.println("Nome.................: " + getNome());
         System.out.println("Apelido..............: " + getApelido());
         System.out.println("CPF..................: " + getCPF());
@@ -56,15 +68,23 @@ public class Candidato extends Pessoa {
         System.out.println("Profissão............: " + getProfissao());
         System.out.println("Estado...............: " + getEstado());
         System.out.println("Cargo...............: " + getCargo());
+
+        getPardito().imprimir();
     }
 
     public void salvarEmArquivo() {
         Arquivo arq = new Arquivo(ConfiguracaoArquivo.caminhoCandidato);
-        arq.escrever(getNome() + ";" + getApelido() + ";" + getCPF() + ";" + getDataNascimento() + ";" + getFormacaoAcademica()
-                + ";" + getProfissao() + ";" + getEstado() + ";" + getCargo());
+        arq.escrever(getNome() + ";" + getApelido() + ";" + getCPF() + ";" + getDataNascimento() + ";"
+                + getFormacaoAcademica() + ";" + getProfissao() + ";" + getEstado() + ";"
+                + getCidade() + ";" + getCargo() + ";" + partido.getNumero());
     }
 
-    private Candidato converterLinhaParaCandidato(String linha) {
+    public void mantemCadastro() {
+        leia();
+        salvarEmArquivo();
+    }
+
+    private static Candidato converterLinhaParaCandidato(String linha) {
         Candidato candidato = new Candidato();
         String[] elementos = linha.split(";");
         candidato.nome = elementos[0];
@@ -74,12 +94,14 @@ public class Candidato extends Pessoa {
         candidato.formacaoAcademica = elementos[4];
         candidato.profissao = elementos[5];
         candidato.estado = elementos[6];
-        candidato.cargo = elementos[7];
+        candidato.cidade = elementos[7];
+        candidato.cargo = elementos[8];
+        candidato.partido = Partido.getPartidoPeloNumero(elementos[9]);
 
         return candidato;
     }
 
-    public ArrayList<Candidato> carregarCandidatos() {
+    public static ArrayList<Candidato> carregarCandidatos() {
         ArrayList<Candidato> listaCandidatos = new ArrayList<>();
         Arquivo arq = new Arquivo();
         ArrayList<String> linhasDoArquivo = arq.ler(ConfiguracaoArquivo.caminhoCandidato);
@@ -87,8 +109,16 @@ public class Candidato extends Pessoa {
         for (int i = 0; i < linhasDoArquivo.size(); i++) {
             listaCandidatos.add(converterLinhaParaCandidato(linhasDoArquivo.get(i)));
         }
-        
+
         return listaCandidatos;
     }
 
+    public static void listarCandidatos() {
+        ArrayList<Candidato> candidatos = new ArrayList<>();
+        candidatos = Candidato.carregarCandidatos();
+
+        for (int i = 0; i < candidatos.size(); i++) {
+            candidatos.get(i).imprimir();
+        }
+    }
 }
