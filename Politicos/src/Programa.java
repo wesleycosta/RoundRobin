@@ -11,6 +11,7 @@ public class Programa {
         do {
             System.out.println("[1] - CADASTRAR PARTIDO");
             System.out.println("[2] - LISTAR    PARTIDOS");
+            System.out.println("[3] - VOLTAR");
             System.out.println("OPÇÃO: ");
 
             opcao = Integer.parseInt(in.nextLine());
@@ -21,7 +22,35 @@ public class Programa {
             } else if (opcao == 2) {
                 Partido.listaPartidos();
             }
-        } while (opcao <= 0 || opcao > 2);
+        } while (opcao <= 0 || opcao > 3);
+    }
+    
+     private static void candidato()
+    {
+        int opcao = 0;
+        
+        Scanner in = new Scanner(System.in);
+        
+        do
+        {
+            System.out.println("[1] - CADASTRAR CANDITADO");
+            System.out.println("[2] - LISTAR CANDITADO");
+            System.out.println("[3] - VOLTAR");
+            System.out.println("OPCAO: ");
+            opcao = Integer.parseInt(in.nextLine());
+            
+            switch(opcao)
+            {
+                case 1: Candidato canditado = new Candidato();
+                        canditado.mantemCadastro();
+                    break;
+                    
+                case 2: Candidato.listarCandidatos();
+                    break;
+            }
+            
+        }while(opcao <= 0 || opcao >= 3);
+        
     }
 
     public static void main(String[] args) {
@@ -41,7 +70,7 @@ public class Programa {
             if(opcao == 1)
                 partido();
             else if(opcao == 2);
-              //candidato();
+              candidato();
         } while (opcao < 0 || opcao > 3);
     }
 
