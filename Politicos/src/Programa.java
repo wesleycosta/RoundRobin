@@ -66,8 +66,19 @@ public class Programa {
 
     private static void roundRobin() {
         int cargo = Cargo.leiaMenu();
-        RoundRobin rRobin = new RoundRobin(Candidato.filtrarCandidato(cargo));
-        rRobin.gerarDebates();
+
+        ArrayList<Candidato> candidatos = new ArrayList<>();
+        candidatos = Candidato.filtrarCandidato(cargo);
+
+        if (candidatos.size() >= 2) {
+            RoundRobin rRobin = new RoundRobin(candidatos);
+            rRobin.gerarDebates();
+        } else {
+            System.out.println("A quantidade de candidatos é menor que 2 ");
+            System.out.println("Não é possivel gerar os debates !!!");
+        }
+
+        pause();
     }
 
     public static void main(String[] args) {
