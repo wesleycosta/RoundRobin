@@ -5,7 +5,12 @@ import java.util.Scanner;
 public class Programa {
 
     private static void limparTela() {
-        System.out.println("\n**************************************\n");
+        System.out.println("\n\n");
+    }
+
+    private static void pause() {
+        System.out.print("\nTecle <ENTER> para continuar...");
+        new Scanner(System.in).nextLine();
     }
 
     private static void partido() {
@@ -13,10 +18,11 @@ public class Programa {
         Scanner in = new Scanner(System.in);
 
         do {
-            limparTela();
-            System.out.println("[1] - CADASTRAR PARTIDO");
-            System.out.println("[2] - LISTAR    PARTIDOS");
-            System.out.println("[3] - VOLTAR");
+            System.out.println("**********************************");
+            System.out.println("*** [1] - CADASTRAR  PARTIDO   ***");
+            System.out.println("*** [2] - LISTAR     PARTIDOS  ***");
+            System.out.println("*** [3] - VOLTAR               ***");
+            System.out.println("**********************************");
             System.out.print("OPÇÃO: ");
 
             opcao = Integer.parseInt(in.nextLine());
@@ -24,8 +30,10 @@ public class Programa {
             if (opcao == 1) {
                 Partido pardito = new Partido();
                 pardito.mantemCadastro();
+                pause();
             } else if (opcao == 2) {
                 Partido.listaPartidos();
+                pause();
             }
         } while (opcao != 3);
     }
@@ -37,20 +45,29 @@ public class Programa {
 
         do {
             limparTela();
-            System.out.println("[1] - CADASTRAR CANDITADO");
-            System.out.println("[2] - LISTAR CANDITADO");
-            System.out.println("[3] - VOLTAR");
+            System.out.println("**********************************");
+            System.out.println("*** [1] - CADASTRAR CANDIDATO  ***");
+            System.out.println("*** [2] - LISTAR    CANDIDATOS ***");
+            System.out.println("*** [3] - VOLTAR               ***");
+            System.out.println("**********************************");
             System.out.print("OPCAO: ");
             opcao = Integer.parseInt(in.nextLine());
 
             if (opcao == 1) {
-
                 Candidato canditado = new Candidato();
                 canditado.mantemCadastro();
+                pause();
             } else if (opcao == 2) {
                 Candidato.listarCandidatos();
+                pause();
             }
         } while (opcao != 3);
+    }
+
+    private static void roundRobin() {
+        int cargo = Cargo.leiaMenu();
+        RoundRobin rRobin = new RoundRobin(Candidato.filtrarCandidato(cargo));
+        rRobin.gerarDebates();
     }
 
     public static void main(String[] args) {
@@ -58,11 +75,12 @@ public class Programa {
         Scanner in = new Scanner(System.in);
 
         do {
-            limparTela();
-            System.out.println("[1] - PARTIDO");
-            System.out.println("[2] - CANDIDATO");
-            System.out.println("[3] - ROUND ROBIN");
-            System.out.println("[4] - SAIR");
+            System.out.println("**********************************");
+            System.out.println("*** [1] - PARTIDO              ***");
+            System.out.println("*** [2] - CANDIDATO            ***");
+            System.out.println("*** [3] - ROUND ROBIN          ***");
+            System.out.println("*** [4] - SAIR                 ***");
+            System.out.println("**********************************");
 
             System.out.print("OPÇÃO: ");
 
@@ -72,8 +90,11 @@ public class Programa {
                 partido();
             } else if (opcao == 2) {
                 candidato();
+            } else if (opcao == 3) {
+                roundRobin();
             }
 
+            limparTela();
         } while (opcao != 4);
     }
 }

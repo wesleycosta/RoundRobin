@@ -59,19 +59,28 @@ public class Partido {
     }
 
     public void imprimir() {
-        System.out.println("Nome....: " + getNome());
-        System.out.println("Sigla...: " + getSigla());
-        System.out.println("Número..: " + getNumero());
+        System.out.println("Nome................: " + getNome());
+        System.out.println("Sigla...............: " + getSigla());
+        System.out.println("Número..............: " + getNumero());
+    }
+
+    private String paraCSV() {
+        return getNome() + ";" + getSigla() + ";" + getNumero();
     }
 
     public void salvarEmArquivo() {
         Arquivo arq = new Arquivo(ConfiguracaoArquivo.caminhoPartido);
-        arq.escrever(getNome() + ";" + getSigla() + ";" + getNumero());
+        arq.escrever(paraCSV());
     }
 
     public void mantemCadastro() {
         leia();
-        salvarEmArquivo();
+
+        if (existePartido(getNumero())) {
+            System.out.println("Ja existe um partido cadastrado com esse numero " + getNumero() + ".");
+        } else {
+            salvarEmArquivo();
+        }
     }
 
     private static Partido converteLinhaParaPartido(String linha) {
@@ -134,10 +143,29 @@ public class Partido {
     public static void listaPartidos() {
         ArrayList<Partido> partidos = new ArrayList<>();
         partidos = Partido.carregarPartidos();
+        System.out.print("\n\n");
+        System.out.println("**********************************");
+        System.out.println("*******  LISTA DE PARTIDOS *******");
+        System.out.println("**********************************");
+        System.out.print("\n");
 
         for (int i = 0; i < partidos.size(); i++) {
-            System.out.println("DADOS DO PARTIDO " + i);
+            System.out.println("**********************************");
+            System.out.printf("*********** PARTIDO %2d ***********\n", i + 1);
+            System.out.println("**********************************");
+
             partidos.get(i).imprimir();
+            System.out.print("\n\n");
         }
+    }
+
+    private boolean existePartido(String Numpartido) {
+
+        for (Partido partido : carregarPartidos()) {
+            if (Numpartido.equals(partido.getNumero())) {
+                return true;
+            }
+        }
+        return false;
     }
 }
