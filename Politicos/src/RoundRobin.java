@@ -1,9 +1,10 @@
+import java.util.ArrayList;
 
 public class RoundRobin {
 
-    java.util.ArrayList<Candidato> candidatos = new java.util.ArrayList<>();
+    ArrayList<Candidato> candidatos = new java.util.ArrayList<>();
 
-    RoundRobin(java.util.ArrayList<Candidato> candidatos) {
+    RoundRobin(ArrayList<Candidato> candidatos) {
         this.candidatos = candidatos;
     }
 
