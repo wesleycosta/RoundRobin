@@ -7,6 +7,7 @@ public class Partido {
     private String nome;
     private String sigla;
     private String numero;
+    private double totalSalario;
 
     Partido() {
 
@@ -42,6 +43,14 @@ public class Partido {
         this.numero = numero;
     }
 
+    public void setTotalSalario(double totalSalario) {
+        this.totalSalario = totalSalario;
+    }
+
+    public double getTotalSalario() {
+        return this.totalSalario;
+    }
+
     public void leia() {
         Scanner in = new Scanner(System.in);
         System.out.println("\n");
@@ -62,6 +71,7 @@ public class Partido {
         System.out.println("Nome................: " + getNome());
         System.out.println("Sigla...............: " + getSigla());
         System.out.println("Número..............: " + getNumero());
+        System.out.println("Total Salário.......: " + getTotalSalario());
     }
 
     private String paraCSV() {
@@ -89,6 +99,7 @@ public class Partido {
         partido.nome = elementos[0];
         partido.sigla = elementos[1];
         partido.numero = elementos[2];
+        partido.getTotalSalarioDoPartido();
 
         return partido;
     }
@@ -169,17 +180,19 @@ public class Partido {
         return false;
     }
 
-    public double getTotalSalario() {
-        return getTotalSalario(this);
+    public void getTotalSalarioDoPartido() {
+        getTotalSalarioDoPartido(this);
     }
 
-    public static double getTotalSalario(Partido partido) {
+    public static double getTotalSalarioDoPartido(Partido partido) {
         double total = 0;
         ArrayList<Candidato> candidatos = new ArrayList<>();
         candidatos = Candidato.carregarCandidatos();
 
         for (Candidato candidato : candidatos) {
-            if (candidato.getPardito().getNumero().equals(partido.getNumero()));
+            if (candidato.getPardito().getNumero().equals(partido.getNumero())) {
+                total += candidato.getSalario();
+            }
         }
 
         return total;
