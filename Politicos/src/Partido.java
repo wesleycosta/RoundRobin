@@ -168,4 +168,20 @@ public class Partido {
         }
         return false;
     }
+
+    public double getTotalSalario() {
+        return getTotalSalario(this);
+    }
+
+    public static double getTotalSalario(Partido partido) {
+        double total = 0;
+        ArrayList<Candidato> candidatos = new ArrayList<>();
+        candidatos = Candidato.carregarCandidatos();
+
+        for (Candidato candidato : candidatos) {
+            if (candidato.getPardito().getNumero().equals(partido.getNumero()));
+        }
+
+        return total;
+    }
 }

@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Candidato extends Pessoa {
 
     private int cargo;
+    private double salario;
     private Partido partido;
 
     public int getCargo() {
@@ -21,6 +22,11 @@ public class Candidato extends Pessoa {
 
     public void setPartido(Partido partido) {
         this.partido = partido;
+    }
+    
+    public double getSalario()
+    {
+        return this.salario;
     }
 
     public void leia() {
