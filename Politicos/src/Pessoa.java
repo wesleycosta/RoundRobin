@@ -9,6 +9,7 @@ public class Pessoa {
     protected String profissao;
     protected String estado;
     protected String cidade;
+    
 
     public void setCidade(String cidade) {
         this.cidade = cidade;

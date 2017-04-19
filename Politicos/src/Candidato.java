@@ -28,6 +28,10 @@ public class Candidato extends Pessoa {
     {
         return this.salario;
     }
+    
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }
 
     public void leia() {
         Scanner in = new Scanner(System.in);
@@ -58,6 +62,9 @@ public class Candidato extends Pessoa {
 
         System.out.print("Entre com a Cidade..............: ");
         setCidade(in.nextLine());
+        
+        System.out.print("Entre com o Salario.............: ");
+        setSalario(in.nextDouble());
 
         leiaCargo();
         leiaPardito();
@@ -81,6 +88,7 @@ public class Candidato extends Pessoa {
         System.out.println("Profissao...........: " + getProfissao());
         System.out.println("Estado..............: " + getEstado());
         System.out.println("Cidade..............: " + getCidade());
+        System.out.println("Salario.............: " + getSalario());
         System.out.println("Cargo...............: " + Cargo.getNome(getCargo()));
 
         System.out.println("************ PARTIDO ************");
@@ -96,8 +104,9 @@ public class Candidato extends Pessoa {
                 + getProfissao() + ";" //[5]
                 + getEstado() + ";" //[6]
                 + getCidade() + ";" //[7]
-                + getCargo() + ";" //[8]
-                + partido.getNumero();//[9]
+                +getSalario() + ";" //[8]
+                + getCargo() + ";" //[9]
+                + partido.getNumero();//[10]
 
     }
 
@@ -127,8 +136,9 @@ public class Candidato extends Pessoa {
         candidato.profissao = elementos[5];
         candidato.estado = elementos[6];
         candidato.cidade = elementos[7];
-        candidato.cargo = Integer.parseInt(elementos[8]);
-        candidato.partido = Partido.getPartidoPeloNumero(elementos[9]);
+        candidato.salario = Double.parseDouble(elementos[8]);
+        candidato.cargo = Integer.parseInt(elementos[9]);
+        candidato.partido = Partido.getPartidoPeloNumero(elementos[10]);
 
         return candidato;
     }
