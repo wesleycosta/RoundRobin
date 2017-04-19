@@ -43,7 +43,7 @@ public class Cargo {
         return "";
     }
 
-    public static int leiaMenu() {
+    public static int leiaCandidato() {
         Scanner in = new Scanner(System.in);
         int opcao = 0;
 

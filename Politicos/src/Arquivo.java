@@ -10,12 +10,12 @@ public class Arquivo {
 
     private String nomeArquivo;
 
-    Arquivo(String nomeArquivo) {
-        this.nomeArquivo = nomeArquivo;
-    }
-
     Arquivo() {
 
+    }
+
+    Arquivo(String nomeArquivo) {
+        this.nomeArquivo = nomeArquivo;
     }
 
     public void escrever(String texto) {
@@ -46,14 +46,5 @@ public class Arquivo {
         }
 
         return lista;
-    }
-
-    public static String getDiretorioAtual() {
-        try {
-            return new File(".").getCanonicalPath();
-        } catch (Exception ex) {
-            System.out.println(ex.toString());
-        }
-        return ".";
     }
 }

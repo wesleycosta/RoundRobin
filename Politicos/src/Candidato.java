@@ -26,10 +26,10 @@ public class Candidato extends Pessoa {
     public void leia() {
         Scanner in = new Scanner(System.in);
         System.out.println("\n");
-        System.out.println("Cadastro de Canditado");
+        System.out.println("Cadastro de Candidato");
         System.out.println("");
 
-        System.out.print("Entre o nome do Canditado.......: ");
+        System.out.print("Entre o nome do Candidato.......: ");
         setNome(in.nextLine());
 
         System.out.print("Entre com o Apelido.............: ");
@@ -58,7 +58,7 @@ public class Candidato extends Pessoa {
     }
 
     private void leiaCargo() {
-        setCargo(Cargo.leiaMenu());
+        setCargo(Cargo.leiaCandidato());
     }
 
     private void leiaPardito() {

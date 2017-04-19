@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class RoundRobin {
 
-    ArrayList<Candidato> candidatos = new java.util.ArrayList<>();
+    ArrayList<Candidato> candidatos = new ArrayList<>();
 
     RoundRobin(ArrayList<Candidato> candidatos) {
         this.candidatos = candidatos;

@@ -54,8 +54,8 @@ public class Programa {
             opcao = Integer.parseInt(in.nextLine());
 
             if (opcao == 1) {
-                Candidato canditado = new Candidato();
-                canditado.mantemCadastro();
+                Candidato candidato = new Candidato();
+                candidato.mantemCadastro();
                 pause();
             } else if (opcao == 2) {
                 Candidato.listarCandidatos();
@@ -65,7 +65,7 @@ public class Programa {
     }
 
     private static void roundRobin() {
-        int cargo = Cargo.leiaMenu();
+        int cargo = Cargo.leiaCandidato();
 
         ArrayList<Candidato> candidatos = new ArrayList<>();
         candidatos = Candidato.filtrarCandidato(cargo);
