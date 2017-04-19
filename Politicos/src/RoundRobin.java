@@ -28,7 +28,7 @@ public class RoundRobin {
         int meio = ((candidatos.size() / 2));
 
         for (int i = 0; i < meio; i++) {
-            System.out.println(formataCandidato(candidatos.get(i)) + " VS " + formataCandidato(candidatos.get(ultimo--)));
+            System.out.println(formataCandidato(candidatos.get(i)) + "  VS  " + formataCandidato(candidatos.get(ultimo--)));
         }
         System.out.println();
     }
@@ -40,7 +40,7 @@ public class RoundRobin {
             trocarPosicoes();
         }
         if (candidatos.size() == 3) {
-            System.out.println(formataCandidato(candidatos.get(candidatos.size() - 1)) + " VS " + formataCandidato(candidatos.get(candidatos.size() - 2)));
+            System.out.println(formataCandidato(candidatos.get(candidatos.size() - 1)) + "  VS  " + formataCandidato(candidatos.get(candidatos.size() - 2)));
         }
     }
 }

@@ -1,5 +1,7 @@
-WESLEY COSTA;123;312;321;123;132;SP;CAMPOS DO JORDAO;7;42
-ANA;ANA;ANA;ana;ana;an;SP;CAMPOS DO JORDAO;2;42
-JOAO;JOAO;123123;312;1231;123;SP;null;1;13
-ISAQUE;ISAQUE;312123;28/10/1996;MEDIO;ALFA;SP;null;1;42
-BOLSONARIO;BOLSONARIO;312.123.123-29;28-10-1996;FUNDAMENTAL;ALFA;SP;SAO PAULO;6;42
+Aécio Neves;Aécio Neves;;;;;DF;Brasilia;1;15
+Marina Silva;Marina Silva;;;;;DF;Brasilia;1;45
+Luciana Genro;Luciana Genro;;;;;DF;Brasilia;1;12
+Pastor Everaldo;Pastor Everaldo;;;;;DF;Brasilia;1;14
+Eduardo Jorge;Eduardo Jorge;;;;;DF;Brasilia;1;25
+Luciana Genro;Luciana Genro;;;;;DF;Brasilia;1;11
+Dilma Rousseff;Dilma Rousseff;;;;;DF;Brasilia;1;13

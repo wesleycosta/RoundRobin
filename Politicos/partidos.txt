@@ -1,1 +1,7 @@
-PSOL;PSOL;42
+Partido do Movimento Democrático Brasileiro;PMDB;15
+Partido dos Trabalhadores;PT;13
+Partido da Social Democracia Brasileira;PSDB;45
+Partido Progressista;PP;11
+Partido Democrático Trabalhista;PDT;12
+Partido Trabalhista Brasileiro;PTB;14
+Democratas;DEM;25
