@@ -1,7 +1,1 @@
-Aécio Neves;Aécio Neves;;;;;DF;Brasilia;1;15
-Marina Silva;Marina Silva;;;;;DF;Brasilia;1;45
-Luciana Genro;Luciana Genro;;;;;DF;Brasilia;1;12
-Pastor Everaldo;Pastor Everaldo;;;;;DF;Brasilia;1;14
-Eduardo Jorge;Eduardo Jorge;;;;;DF;Brasilia;1;25
-Luciana Genro;Luciana Genro;;;;;DF;Brasilia;1;11
-Dilma Rousseff;Dilma Rousseff;;;;;DF;Brasilia;1;13
+asd;asd;asd;asd;asd;asd;sp;asd;1000.0;1;15

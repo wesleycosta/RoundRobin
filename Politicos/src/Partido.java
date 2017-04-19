@@ -99,7 +99,7 @@ public class Partido {
         partido.nome = elementos[0];
         partido.sigla = elementos[1];
         partido.numero = elementos[2];
-        partido.getTotalSalarioDoPartido();
+        //partido.getTotalSalarioDoPartido();
 
         return partido;
     }
