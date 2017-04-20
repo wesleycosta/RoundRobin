@@ -95,7 +95,8 @@ public class Candidato extends Pessoa {
         getPardito().imprimir();
     }
 
-    private String paraCSV() {
+    @Override
+    public String toString() {
         return getNome() + ";" //[0]
                 + getApelido() + ";" //[1]
                 + getCPF() + ";" //[2]
@@ -112,7 +113,7 @@ public class Candidato extends Pessoa {
 
     public void salvarEmArquivo() {
         Arquivo arq = new Arquivo(ConfiguracaoArquivo.caminhoCandidato);
-        arq.escrever(paraCSV());
+        arq.escrever(toString());
     }
 
     public void mantemCadastro() {
@@ -191,7 +192,7 @@ public class Candidato extends Pessoa {
         return listaCandidato;
     }
 
-    private boolean existeCandidato(String cpf) {
+    private static boolean existeCandidato(String cpf) {
         for (Candidato candidato : carregarCandidatos()) {
             if (cpf.equals(candidato.getCPF())) {
                 return true;

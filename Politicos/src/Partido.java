@@ -64,13 +64,14 @@ public class Partido {
         System.out.println("Número..............: " + getNumero());
     }
 
-    private String paraCSV() {
+    @Override
+    public String toString() {
         return getNome() + ";" + getSigla() + ";" + getNumero();
     }
 
     public void salvarEmArquivo() {
         Arquivo arq = new Arquivo(ConfiguracaoArquivo.caminhoPartido);
-        arq.escrever(paraCSV());
+        arq.escrever(toString());
     }
 
     public void mantemCadastro() {
@@ -86,9 +87,10 @@ public class Partido {
     private static Partido converteLinhaParaPartido(String linha) {
         Partido partido = new Partido();
         String[] elementos = linha.split(";");
-        partido.nome = elementos[0];
-        partido.sigla = elementos[1];
-        partido.numero = elementos[2];
+
+        partido.setNome(elementos[0]);
+        partido.setSigla(elementos[1]);
+        partido.setNumero(elementos[2]);
 
         return partido;
     }
@@ -111,7 +113,7 @@ public class Partido {
     private static void imprmirListaDePartidos(ArrayList<Partido> listaDePartidos) {
         for (int i = 0; i < listaDePartidos.size(); i++) {
             Partido partido = listaDePartidos.get(i);
-            System.out.println("[" + (i + 1) + "] - " + partido.sigla + "(" + partido.nome + ") - " + partido.numero);
+            System.out.println("[" + (i + 1) + "] - " + partido.getSigla() + "(" + partido.getNome() + ") - " + partido.getNumero());
         }
     }
 
@@ -124,6 +126,7 @@ public class Partido {
             System.out.print("\n***SELECIONE UM PARTIDO***\n");
             imprmirListaDePartidos(listaDePartido);
             System.out.print("OPÇÃO: ");
+
             opcao = Integer.parseInt(in.nextLine());
         } while (opcao <= 0 || opcao > listaDePartido.size());
 
