@@ -40,7 +40,6 @@ public class Programa {
 
     private static void candidato() {
         int opcao = 0;
-
         Scanner in = new Scanner(System.in);
 
         do {
@@ -66,7 +65,6 @@ public class Programa {
 
     private static void roundRobin() {
         int cargo = Cargo.leiaCandidato();
-
         ArrayList<Candidato> candidatos = new ArrayList<>();
         candidatos = Candidato.filtrarCandidato(cargo);
 
