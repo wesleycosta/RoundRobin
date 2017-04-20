@@ -23,12 +23,11 @@ public class Candidato extends Pessoa {
     public void setPartido(Partido partido) {
         this.partido = partido;
     }
-    
-    public double getSalario()
-    {
+
+    public double getSalario() {
         return this.salario;
     }
-    
+
     public void setSalario(double salario) {
         this.salario = salario;
     }
@@ -62,7 +61,7 @@ public class Candidato extends Pessoa {
 
         System.out.print("Entre com a Cidade..............: ");
         setCidade(in.nextLine());
-        
+
         System.out.print("Entre com o Salario.............: ");
         setSalario(in.nextDouble());
 
@@ -71,7 +70,8 @@ public class Candidato extends Pessoa {
     }
 
     private void leiaCargo() {
-        setCargo(Cargo.leiaCandidato());
+        int cargo = Cargo.leiaCandidato();
+        setCargo(cargo);
     }
 
     private void leiaPardito() {
@@ -104,7 +104,7 @@ public class Candidato extends Pessoa {
                 + getProfissao() + ";" //[5]
                 + getEstado() + ";" //[6]
                 + getCidade() + ";" //[7]
-                +getSalario() + ";" //[8]
+                + getSalario() + ";" //[8]
                 + getCargo() + ";" //[9]
                 + partido.getNumero();//[10]
 
@@ -128,17 +128,18 @@ public class Candidato extends Pessoa {
     private static Candidato converterLinhaParaCandidato(String linha) {
         Candidato candidato = new Candidato();
         String[] elementos = linha.split(";");
-        candidato.nome = elementos[0];
-        candidato.apelido = elementos[1];
-        candidato.CPF = elementos[2];
-        candidato.dataNascimento = elementos[3];
-        candidato.formacaoAcademica = elementos[4];
-        candidato.profissao = elementos[5];
-        candidato.estado = elementos[6];
-        candidato.cidade = elementos[7];
-        candidato.salario = Double.parseDouble(elementos[8]);
-        candidato.cargo = Integer.parseInt(elementos[9]);
-        candidato.partido = Partido.getPartidoPeloNumero(elementos[10]);
+
+        candidato.setNome(elementos[0]);
+        candidato.setApelido(elementos[1]);
+        candidato.setCPF(elementos[2]);
+        candidato.setDataNascimento(elementos[3]);
+        candidato.setFormacaoAcademica(elementos[4]);
+        candidato.setProfissao(elementos[5]);
+        candidato.setEstado(elementos[6]);
+        candidato.setCidade(elementos[7]);
+        candidato.setSalario(Double.parseDouble(elementos[8]));
+        candidato.setCargo(Integer.parseInt(elementos[9]));
+        candidato.setPartido(Partido.getPartidoPeloNumero(elementos[10]));
 
         return candidato;
     }
@@ -149,7 +150,9 @@ public class Candidato extends Pessoa {
         ArrayList<String> linhasDoArquivo = arq.ler(ConfiguracaoArquivo.caminhoCandidato);
 
         for (int i = 0; i < linhasDoArquivo.size(); i++) {
-            listaCandidatos.add(converterLinhaParaCandidato(linhasDoArquivo.get(i)));
+            if (!linhasDoArquivo.get(i).isEmpty()) {
+                listaCandidatos.add(converterLinhaParaCandidato(linhasDoArquivo.get(i)));
+            }
         }
 
         return listaCandidatos;

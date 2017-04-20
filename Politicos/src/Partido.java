@@ -7,7 +7,6 @@ public class Partido {
     private String nome;
     private String sigla;
     private String numero;
-    private double totalSalario;
 
     Partido() {
 
@@ -43,14 +42,6 @@ public class Partido {
         this.numero = numero;
     }
 
-    public void setTotalSalario(double totalSalario) {
-        this.totalSalario = totalSalario;
-    }
-
-    public double getTotalSalario() {
-        return this.totalSalario;
-    }
-
     public void leia() {
         Scanner in = new Scanner(System.in);
         System.out.println("\n");
@@ -71,7 +62,6 @@ public class Partido {
         System.out.println("Nome................: " + getNome());
         System.out.println("Sigla...............: " + getSigla());
         System.out.println("Número..............: " + getNumero());
-        System.out.println("Total Salário.......: " + getTotalSalario());
     }
 
     private String paraCSV() {
@@ -99,7 +89,6 @@ public class Partido {
         partido.nome = elementos[0];
         partido.sigla = elementos[1];
         partido.numero = elementos[2];
-        //partido.getTotalSalarioDoPartido();
 
         return partido;
     }
@@ -111,7 +100,9 @@ public class Partido {
         ArrayList<String> linhasDoArquivo = arq.ler(ConfiguracaoArquivo.caminhoPartido);
 
         for (int i = 0; i < linhasDoArquivo.size(); i++) {
-            listaDePartidos.add(converteLinhaParaPartido(linhasDoArquivo.get(i)));
+            if (!linhasDoArquivo.get(i).isEmpty()) {
+                listaDePartidos.add(converteLinhaParaPartido(linhasDoArquivo.get(i)));
+            }
         }
 
         return listaDePartidos;
@@ -166,31 +157,28 @@ public class Partido {
             System.out.println("**********************************");
 
             partidos.get(i).imprimir();
+            System.out.println("Total Salario.......: " + partidos.get(i).getTotalSalarioDoPartido());
             System.out.print("\n\n");
         }
     }
 
     private boolean existePartido(String Numpartido) {
-
         for (Partido partido : carregarPartidos()) {
             if (Numpartido.equals(partido.getNumero())) {
                 return true;
             }
         }
+
         return false;
     }
 
-    public void getTotalSalarioDoPartido() {
-        getTotalSalarioDoPartido(this);
-    }
-
-    public static double getTotalSalarioDoPartido(Partido partido) {
+    public double getTotalSalarioDoPartido() {
         double total = 0;
         ArrayList<Candidato> candidatos = new ArrayList<>();
         candidatos = Candidato.carregarCandidatos();
 
         for (Candidato candidato : candidatos) {
-            if (candidato.getPardito().getNumero().equals(partido.getNumero())) {
+            if (getNumero().equals(candidato.getPardito().getNumero())) {
                 total += candidato.getSalario();
             }
         }

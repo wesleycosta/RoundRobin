@@ -71,9 +71,9 @@ public class Programa {
         candidatos = Candidato.filtrarCandidato(cargo);
 
         if (candidatos.size() >= 2) {
-            System.out.println("**********************************");
-            System.out.println("***       LISTA DE DEBATES     ***");
-            System.out.println("**********************************");
+            System.out.println("********************************************************************");
+            System.out.println("***                        LISTA DE DEBATES                      ***");
+            System.out.println("********************************************************************");
             RoundRobin rRobin = new RoundRobin(candidatos);
             rRobin.gerarDebates();
         } else {

@@ -9,7 +9,6 @@ public class Pessoa {
     protected String profissao;
     protected String estado;
     protected String cidade;
-    
 
     public void setCidade(String cidade) {
         this.cidade = cidade;
@@ -74,5 +73,4 @@ public class Pessoa {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-
 }

@@ -54,7 +54,6 @@ public class Cargo {
             }
             System.out.print("OPÇÃO: ");
             opcao = Integer.parseInt(in.nextLine());
-
         } while (opcao <= 0 || opcao > 7);
 
         return opcao;
