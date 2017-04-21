@@ -65,7 +65,7 @@ public class RoundRobin {
         }
 
         if (candidatos.size() == 3) {
-            System.out.println(formataCandidato(candidatos.get(candidatos.size() - 1)) + "  VS  " + formataCandidato(candidatos.get(candidatos.size() - 2)));
+            System.out.println(formataCandidato(candidatos.get(candidatos.size() - 1)) + "  X  " + formataCandidato(candidatos.get(candidatos.size() - 2)));
         }
     }
 }
