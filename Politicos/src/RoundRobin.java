@@ -9,6 +9,28 @@ public class RoundRobin {
         this.candidatos = candidatos;
     }
 
+    public void gerarDebates() {
+        for (int i = 0; i < candidatos.size() - 1; i++) {
+            imprimir();
+            trocarPosicoes();
+        }
+
+        if (candidatos.size() == 3) {
+            imprimirDebate(candidatos.get(candidatos.size() - 1), candidatos.get(candidatos.size() - 2));
+        }
+    }
+
+    private void imprimir() {
+        int ultimo = candidatos.size() - 1;
+        int meio = ((candidatos.size() / 2));
+
+        for (int i = 0; i < meio; i++) {
+            imprimirDebate(candidatos.get(i), candidatos.get(ultimo--));
+        }
+
+        System.out.println("\n");
+    }
+
     private void trocarPosicoes() {
         int ultimo = candidatos.size() - 1;
 
@@ -19,6 +41,19 @@ public class RoundRobin {
         }
     }
 
+    private void imprimirDebate(Candidato candidato1, Candidato candidato2) {
+        int maiorNome = getMaiorNome();
+
+        String candidatoStr1 = formataCandidato(candidato1);
+        String candidatoStr2 = formataCandidato(candidato2);
+
+        candidatoStr1 = candidatoStr1 + novoEspaco(25 - candidatoStr1.length());
+        candidatoStr2 = novoEspaco((25 - maiorNome) / 2) + candidatoStr2;
+
+        System.out.println(candidatoStr1 + " X " + candidatoStr2);
+        System.out.println();
+    }
+
     private String formataCandidato(Candidato candidato) {
         return candidato.getNome() + " (" + candidato.getPardito().getSigla() + ") ";
     }
@@ -27,7 +62,6 @@ public class RoundRobin {
         return new String(new char[numero]).replace('\0', ' ');
     }
 
-    // RETORNAR O TAMANHO DO MAIOR NOME DA LISTA DE CANDIDATOS
     private int getMaiorNome() {
         int maior = 0;
 
@@ -38,34 +72,5 @@ public class RoundRobin {
         }
 
         return maior;
-    }
-
-    private void imprimir() {
-        int ultimo = candidatos.size() - 1;
-        int meio = ((candidatos.size() / 2));
-        int maiorNome = getMaiorNome();
-
-        for (int i = 0; i < meio; i++) {
-            String candidato1 = formataCandidato(candidatos.get(i));
-            String candidato2 = formataCandidato(candidatos.get(ultimo--));
-            candidato1 = candidato1 + novoEspaco(25 - candidato1.length());
-            candidato2 = novoEspaco((25 - maiorNome) / 2) + candidato2;
-
-            System.out.println(candidato1 + " X " + candidato2);
-            System.out.println();
-        }
-
-        System.out.println("\n");
-    }
-
-    public void gerarDebates() {
-        for (int i = 0; i < candidatos.size() - 1; i++) {
-            imprimir();
-            trocarPosicoes();
-        }
-
-        if (candidatos.size() == 3) {
-            System.out.println(formataCandidato(candidatos.get(candidatos.size() - 1)) + "  X  " + formataCandidato(candidatos.get(candidatos.size() - 2)));
-        }
     }
 }
