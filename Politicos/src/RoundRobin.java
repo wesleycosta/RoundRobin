@@ -22,7 +22,7 @@ public class RoundRobin {
 
     private void imprimir() {
         int ultimo = candidatos.size() - 1;
-        int meio = ((candidatos.size() / 2));
+        int meio = (candidatos.size() / 2);
 
         for (int i = 0; i < meio; i++) {
             imprimirDebate(candidatos.get(i), candidatos.get(ultimo--));
